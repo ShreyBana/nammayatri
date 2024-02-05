@@ -25,7 +25,7 @@ public class ResourceHandler {
 
     public ResourceHandler(@NonNull Context context) {
         this.context = context;
-        this.juspayServices = new JuspayServices(context,null);
+        this.juspayServices = new JuspayServices(context, null, "nammayatri");
     }
 
     protected String getFromAssets (String fileName) {

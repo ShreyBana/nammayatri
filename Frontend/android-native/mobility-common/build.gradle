@@ -36,11 +36,20 @@ android {
 
 dependencies {
 
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.6.0'
     implementation project(':mobility-app')
-    implementation 'in.juspay:hyper:2.1.20-nammayatri.13'
-    compileOnly 'in.juspay:hypersdk:2.1.14'
+    implementation project(":hyper-sdk")
+    implementation project(":hyper")
+//    compileOnly 'in.juspay:hypersdk:2.1.14'
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

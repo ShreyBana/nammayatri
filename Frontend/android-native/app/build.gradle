@@ -34,7 +34,7 @@ android {
     namespace "in.juspay.mobility"
 
     defaultConfig {
-        minSdkVersion 23
+        minSdkVersion 24
         targetSdkVersion 33
         versionCode 100
         versionName "1.2.9"
@@ -211,8 +211,11 @@ ext {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation "in.juspay:hypersdk:$jpSDKversion"
-    implementation "in.juspay:hyperqr:$jpSDKversion"
+    implementation project(":hyper-sdk")
+    implementation project(":hyper-sms-handler")
+    implementation project(":hyper")
+    implementation project(":hyper-qr")
+    implementation('in.juspay:qrscanner:2.1.0')
     implementation project(path: ':mobility-app')
     compileOnly project(path: ':mobility-common')
     implementation platform('com.google.firebase:firebase-bom:31.1.1')
@@ -225,6 +228,8 @@ dependencies {
     yatriUserImplementation project(path: ':mobility-customer')
     implementation 'com.google.firebase:firebase-dynamic-links'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0'
+    implementation 'com.jakewharton.timber:timber:4.5.1'
 
     implementation 'com.google.firebase:firebase-crashlytics:18.4.3'
     implementation 'com.google.firebase:firebase-messaging'
